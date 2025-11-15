@@ -85,6 +85,13 @@ export default function Header() {
             Docs
           </Link>
           <Link
+            href="/barter"
+            _hover={{ color: "white", textDecoration: "none" }}
+            color={isActive("/barter") ? "white" : undefined}
+          >
+            Barter
+          </Link>
+          <Link
             href="/feeds"
             _hover={{ color: "white", textDecoration: "none" }}
             color={isActive("/feeds") ? "white" : undefined}

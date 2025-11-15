@@ -1,0 +1,31 @@
+.bridgesInnerTab {
+width: 378;
+height: 71;
+opacity: 1;
+border-right-width: 4px;
+border-right: 4px solid #6B1BFFB2
+
+}
+.bridgesInnerTabContainer {
+  width: 118;
+height: 30;
+/* angle: 0 deg; */
+opacity: 1;
+gap: 8px;
+}
+
+.bridgesTextTo {
+width: 23;
+height: 27;
+opacity: 1;
+font-family: 'Montserrat';
+font-weight: 700;
+font-style: Bold;
+font-size: 18px;
+/* leading-trim: NONE; */
+line-height: 27px;
+letter-spacing: 0.5px;
+text-align: center;
+vertical-align: middle;
+background: #F5F5F5;
+}
