@@ -1,31 +1,578 @@
-.bridgesInnerTab {
-width: 378;
-height: 71;
-opacity: 1;
-border-right-width: 4px;
-border-right: 4px solid #6B1BFFB2
-
-}
-.bridgesInnerTabContainer {
-  width: 118;
-height: 30;
-/* angle: 0 deg; */
-opacity: 1;
-gap: 8px;
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 1404px;
+  background: #171717;
+  color: #f5f5f5;
+  overflow: hidden;
+  padding-bottom: 160px;
 }
 
-.bridgesTextTo {
-width: 23;
-height: 27;
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  inset: -20% -40%;
+  background: linear-gradient(93.52deg,
+      rgba(0, 234, 177, 0.05) -14.28%,
+      rgba(23, 190, 194, 0.0455) 10.57%,
+      rgba(39, 158, 206, 0.0325) 39.37%,
+      rgba(61, 116, 221, 0.0305) 54.25%,
+      rgba(81, 77, 236, 0.0215) 77.66%,
+      rgba(107, 27, 255, 0.05) 100%);
+  transform: rotate(8deg);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page::after {
+  inset: -10% -50% auto -30%;
+  transform: rotate(-6deg);
+  opacity: 0.25;
+  filter: blur(4px);
+}
+
+.backgroundLines {
+  position: absolute;
+  left: -36.81%;
+  right: -48.74%;
+  top: -10.26%;
+  bottom: 38.16%;
+  background: linear-gradient(93.52deg,
+      rgba(0, 234, 177, 0.05) -14.28%,
+      rgba(23, 190, 194, 0.0455) 10.57%,
+      rgba(39, 158, 206, 0.0325) 39.37%,
+      rgba(61, 116, 221, 0.0305) 54.25%,
+      rgba(81, 77, 236, 0.0215) 77.66%,
+      rgba(107, 27, 255, 0.05) 100%);
+  transform: matrix(0.99, 0.11, -0.3, 0.95, 0, 0);
+  opacity: 0.35;
+  filter: blur(1px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 96px 24px 0;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.heroContent {
+  width: min(600px, 100%);
+  position: relative;
+  margin: 0 auto;
+}
+
+.bridgeWrapper {
+  width: 378;
+  height: 71;
+  opacity: 1;
+  border-width: 2px;
+  top: 272px;
+  left: 531px;
+  
+}
+
+.bridges {
+  width: 398px;
+  max-width: 100%;
+  height: 71px;
+  border-top-right-radius: 13px;
+  background: radial-gradient(208.44% 148.88% at 50% -5%,
+      rgba(255, 255, 255, 0.39) 0%,
+      rgba(0, 0, 0, 0) 35.83%,
+      rgba(245, 245, 245, 0.0195) 100%);
+  position: relative;
+  border-image-source: linear-gradient(93.52deg, #00EAB1 -14.28%, rgba(23, 190, 194, 0.91) 10.57%, rgba(39, 158, 206, 0.65) 39.37%, rgba(61, 116, 221, 0.61) 54.25%, rgba(81, 77, 236, 0.43) 77.66%, #6B1BFF 100%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.bridges::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-left: 4px solid #6B1BFFB2;
+  /* border-radius : 13px  4px ; */
+  pointer-events: none;
+}
+
+.bridgesInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px; 
+}
+
+.bridgesGroup {
+  width: 333;
+  height: 35;
+  opacity: 1;
+  top: 18px;
+  left: 22px;
+  gap: 8px;
+
+}
+
+.bridgesLabel {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.tokenBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.tokenBadgeIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tokenBadgeIconEth {
+  background: linear-gradient(180deg, #4da7ff 0%, #3b63ff 100%);
+}
+
+.tokenBadgeIconImage {
+  background: transparent;
+}
+
+.tokenBadgeIconImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tokenBadgeIconDefault {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f5f5f5;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tokenBadgeText {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+    font-size: 20px;
+
+}
+
+.routeArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+}
+
+.routeArrow:hover {
+  opacity: 0.85;
+}
+
+.routeArrow:focus-visible {
+  outline: 2px solid rgba(107, 27, 255, 0.8);
+}
+
+.routeArrowIcon {
+
+  width: 15px;
+  height: 15px;
+  border: 2px solid #f5f5f5;
+  border-left: transparent;
+  border-bottom: transparent;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.routeArrowIconReverse {
+  transform: rotate(-135deg);
+}
+
+.barterBox {
+  width: 506px;
+  max-width: 100%;
+  position: relative;
+  border-radius: 16px;
+    background: radial-gradient(
+      110% 90% at 50% 0%,
+      rgba(99, 87, 255, 0.4) 0%,
+      rgba(17, 16, 31, 0.95) 55%
+    ),#15141f;
+  /* box-shadow: 0px 24px 60px rgba(88, 128, 240, 0.55); */
+  padding: 48px 48px 60px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.barterBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(245, 245, 245, 0.8) 0%,
+    rgba(107, 27, 255, 0.15) 100%
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.barterBox::before {
+  content: "";
+  position: absolute;
+  inset: 1px 1px auto 1px;
+  height: 220px;
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(94, 94, 229, 0.35) 0%,
+    rgba(94, 94, 229, 0.15) 60%,
+    rgba(3, 3, 3, 0) 100%
+  );
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.cardTitle {
+width: 92;
+height: 42;
 opacity: 1;
-font-family: 'Montserrat';
-font-weight: 700;
-font-style: Bold;
-font-size: 18px;
-/* leading-trim: NONE; */
-line-height: 27px;
-letter-spacing: 0.5px;
+font-family: "Poppins";
+font-weight: 600;
+font-style: SemiBold;
+font-size: 28px;
+line-height: 41.6px;
+letter-spacing: 0%;
+vertical-align: middle;
+color: #FFFFFF;
+
+}
+/* 
+.cardBrand {
+width: 33;
+height: 33;
+opacity: 1;
+
+} */
+
+.brandMark {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: #6b1bff;
+}
+
+.tokenEntry {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(245, 245, 245, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 20px;
+  gap: 24px;
+}
+
+.tokenFrame680 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.tokenFrame673 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.tokenFrame671 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.tokenFrame669 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.amountValue {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.amountCurrency {
+  font-size: 12px;
+  color: #bfbfbf;
+}
+
+.tokenButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 91px;
+  height: 29px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #f5f5f5;
+  color: #2a2a3a;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tokenButtonDisabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 91px;
+  height: 29px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #2a2a3a;
+  font-weight: 500;
+  cursor: default;
+}
+
+.tokenMenuList {
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  min-width: 120px;
+  padding: 6px 0;
+}
+
+.tokenMenuItem {
+  font-size: 14px;
+  color: #f5f5f5;
+  padding: 6px 14px;
+}
+
+.tokenMenuItem:hover,
+.tokenMenuItem:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tokenButtonLabel {
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.arrowDown {
+  width: 18px;
+  height: 18px;
+  border-left: 1.5px solid #2a2a3b;
+  border-bottom: 1.5px solid #2a2a3b;
+  transform: rotate(-45deg);
+}
+
+.balanceInfo {
+  font-family: Poppins;
+font-weight: 400;
+font-style: Regular;
+font-size: 8px;
+line-height: 100%;
+letter-spacing: 0%;
 text-align: center;
 vertical-align: middle;
-background: #F5F5F5;
+
+}
+
+.metaSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.metaLabelGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tooltipIcon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+}
+
+.metaValue {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.metaPanel {
+  width: 100%;
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-top: 28px;
+  background: rgba(245, 245, 245, 0.03);
+  border: 1px solid rgba(94, 94, 229, 0.3);
+  box-shadow: inset 0 0 30px rgba(94, 94, 229, 0.08);
+}
+
+.connectWalletCardWrapper,
+.connectWalletStandaloneWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  
+}
+
+.connectWalletCardWrapper {
+  margin-top: 32px;
+  /* background: radial-gradient(
+      110% 90% at 50% 0%,
+      rgba(99, 87, 255, 0.4) 0%,
+      rgba(17, 16, 31, 0.95) 55%
+    ),#15141f; */
+}
+
+.connectWalletStandaloneWrapper {
+  margin-top: 52px;
+}
+
+.connectWallet {
+  width: 376px;
+  max-width: 100%;
+  height: 48px;
+  /* border-radius: 6px; */
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  background: radial-gradient(
+      86.46% 98.39% at 50% 0%,
+      rgba(94, 94, 229, 0.63) 0%,
+      rgba(0, 0, 0, 0) 81.77%,
+      rgba(88, 88, 88, 0.05) 99.48%
+    ),
+    #18181c;
+  cursor: pointer;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.45);
+}
+
+ .primaryButtonWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+}
+.primaryButtonContainer{
+border-radius: 40px;
+width: 120px;
+align-items: center;
+justify-content: center;
+background-color: #6B1BFF;
+}
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 18px;
+  width: 126px;
+  height: 42px;
+  background: #6b1bff;
+  box-shadow: 0px 0px 156.79px #6b1bff,
+    inset 0px -2.35185px 0px rgba(0, 0, 0, 0.2),
+    inset 0px 0.783951px 0px rgba(255, 255, 255, 0.4);
+  border-radius: 78.3951px;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.primaryButtonLabel {
+  font-family: "Poppins", sans-serif;
+}
+
+.primaryButtonArrow {
+  width: 12px;
+  height: 12px;
+  border: 1.2px solid #f5f5f5;
+  border-left: transparent;
+  border-bottom: transparent;
+  transform: rotate(135deg);
+}
+
+.primaryButtonIcon {
+  width: 14px;
+  height: 14px;
+  border: 1.2px solid #f5f5f5;
+  border-left: transparent;
+  border-bottom: transparent;
+  transform: rotate(-45deg);
+}
+
+
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 72px;
+  }
+
+  .bridgesInner {
+    padding: 0 16px;
+  }
+
+  .tokenEntry {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
