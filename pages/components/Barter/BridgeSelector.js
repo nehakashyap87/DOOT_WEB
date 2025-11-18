@@ -2,7 +2,7 @@ import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import TokenBadge from "./TokenBadge";
 import styles from "./barter.module.css";
 
-function BridgeDirection({ label, symbol }) {
+export function BridgeDirection({ label, symbol }) {
   return (
     <HStack spacing={3} className={styles.bridgesGroup}>
       <Text className={styles.bridgesLabel}>{label}</Text>

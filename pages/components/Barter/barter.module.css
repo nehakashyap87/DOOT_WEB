@@ -1,4 +1,4 @@
-.page {
+﻿.page {
   position: relative;
   width: 100%;
   min-height: 1404px;
@@ -7,7 +7,17 @@
   overflow: hidden;
   padding-bottom: 160px;
 }
-
+.outsideHeroSection{
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
 .page::before,
 .page::after {
   content: "";
@@ -308,6 +318,14 @@
   font-weight: 600;
 }
 
+.tokenBadgeIconUsdc {
+  background: rgba(26, 115, 232, 0.12);
+}
+
+.tokenBadgeIconUsdt {
+  background: rgba(37, 161, 126, 0.12);
+}
+
 .tokenBadgeText {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -481,23 +499,22 @@ opacity: 1;
 }
 
 .tokenSelectWrapper {
-position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    min-width: 102px;
-    height: 38px;
-    padding: 0px 0px 0px 5px;
-    border-radius: 16px;
-    border: none;
-    background: #f5f5f5;
-    color: #2a2a3a;
-    font-weight: 500;
-    cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 120px;
+  height: 38px;
+  padding: 0px 5px 2px 11px;
+  border-radius: 16px;
+  border: none;
+  background: #f5f5f5;
+  color: #2a2a3a;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .tokenSelect {
-  /* appearance: none; */
   border: none;
   background: transparent;
   color: inherit;
@@ -505,15 +522,18 @@ position: relative;
   font-weight: 600;
   cursor: pointer;
   padding: 0;
+  width: auto;
+  min-width: 72px;
 }
 
 .tokenSelect:focus-visible {
-  outline: 2px solid rgba(107, 27, 255, 0.6);
+  outline: 2px  none;
   border-radius: 6px;
 }
 
 .tokenSelect option {
   color: #111111;
+  width: 10%;
 }
 
 .tokenButtonDisabled {
@@ -546,9 +566,9 @@ position: relative;
 
 .balanceInfo {
 font-family: Poppins;
-font-weight: 400;
+/* font-weight: 6 00; */
 font-style: Regular;
-font-size: 9px;
+font-size: 11px;
 line-height: 100%;
 letter-spacing: 0%;
 text-align: center;
@@ -617,15 +637,18 @@ vertical-align: middle;
   margin-top: 52px;
 }
 
+/* Connect wallet CTA (default + hover state inspired by Figma spec) */
 .connectWallet {
   width: 376px;
   max-width: 100%;
   height: 48px;
-  /* border-radius: 6px; */
+  border-radius: 6px;
   border: none;
   color: #ffffff;
   font-size: 16px;
   font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.01em;
   background: radial-gradient(
       86.46% 98.39% at 50% 0%,
       rgba(94, 94, 229, 0.63) 0%,
@@ -635,6 +658,162 @@ vertical-align: middle;
     #18181c;
   cursor: pointer;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.45);
+  transition: all 180ms ease;
+}
+
+.connectWallet:hover:not(:disabled),
+.connectWallet:focus-visible:not(:disabled) {
+  background: radial-gradient(
+      86.46% 98.39% at 50% 0%,
+      #5e5ee5 0%,
+      rgba(0, 0, 0, 0) 81.77%,
+      rgba(88, 88, 88, 0.05) 99.48%
+    ),
+    #18181c;
+  box-shadow: 0 5px 15px rgba(40, 40, 73, 0.4);
+  outline: none;
+}
+
+.connectWallet:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+/* Wallet feedback + reusable data table card styles */
+.walletError {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #ff9b9b;
+  text-align: center;
+}
+
+.tableCard {
+  width: 100%;
+  margin-top: 18px;
+  padding: 20px 22px;
+  border-radius: 14px;
+  background: rgba(12, 12, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 40px rgba(94, 94, 229, 0.08);
+}
+
+.tableCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.tableCardTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tableCardDescription {
+  font-size: 13px;
+  color: #9cc5ff;
+  margin-top: 4px;
+}
+
+.tableCardFilter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: "4px";
+  font-size: "11px";
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+.tableCardSelect {
+  /* appearance: none; */
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 6px 32px 6px 12px;
+  color: #f5f5f5;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tableCardSelect:focus-visible {
+  outline: 2px solid rgba(68, 160, 252, 0.9);
+  outline-offset: 1px;
+}
+
+.tableCardSelectWrapper .tokenSelectWrapper {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.tableCardSelectWrapper .arrowDown {
+  right: 16px;
+}
+
+.tableCardTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+
+.tableCardHeadCell {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: left;
+  padding-bottom: 2px;
+}
+
+.tableCardRow + .tableCardRow {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tableCardCell {
+  padding: 0px 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tableCardCellRight {
+  text-align: right;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.tableCardActionButton {
+  /* min-width: 98px; */
+  width: 100px;
+  height: 32px;
+  padding: 0 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 234, 177, 0.4);
+  background: linear-gradient(
+      93.52deg,
+      rgba(0, 234, 177, 0.15) -14.28%,
+      rgba(107, 27, 255, 0.15) 100%
+    ),
+    rgba(17, 17, 25, 0.8);
+  color: #f5f5f5;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: inset 0 0 8px rgba(0, 234, 177, 0.3);
+  transition: all 150ms ease;
+}
+
+.tableCardActionButton:hover,
+.tableCardActionButton:focus-visible {
+  border-color: rgba(0, 234, 177, 0.8);
+  box-shadow: 0 0 12px rgba(0, 234, 177, 0.35),
+    inset 0 0 12px rgba(0, 234, 177, 0.45);
 }
 
  .primaryButtonWrapper {
@@ -710,6 +889,97 @@ background-color: #6B1BFF;
   .tokenEntry {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 1024px) {
+  .barterBox {
+    padding: 32px 24px;
+  }
+
+  .walletSummary,
+  .tableCard {
+    margin-left: -12px;
+    margin-right: -12px;
+    width: calc(100% + 24px);
+  }
+
+  .tokenEntry,
+  .tokenFrame680 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .tokenFrame673,
+  .tokenFrame671,
+  .tokenFrame669 {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .tokenSelectWrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .connectWallet {
+    width: 100%;
+  }
+
+  .tableCard {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 60px 16px 0;
+  }
+
+  .walletSummary,
+  .tableCard {
+    margin-left: -16px;
+    margin-right: -16px;
+    width: calc(100% + 32px);
+  }
+
+  .tokenSelectWrapper {
+    min-width: 0;
+    padding-right: 40px;
+  }
+
+  .tokenSelect {
+    width: 100%;
+  }
+
+  .arrowDown {
+    right: 16px;
+  }
+
+  .tableCardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .tableCardFilter {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .tableCardSelectWrapper,
+  .tableCardSelect {
+    width: 100%;
+  }
+
+  .tableCardTable {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .tableCardActionButton {
+    width: 100%;
   }
 }
 

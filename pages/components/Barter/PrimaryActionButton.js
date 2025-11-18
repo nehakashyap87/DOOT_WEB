@@ -5,10 +5,9 @@ export default function PrimaryActionButton() {
   return (
     <Box className={styles.primaryButtonWrapper}>
       <Box className={styles.primaryButtonContainer}>
-        <Box  h={10} className={styles.routeArrow} aria-hidden="true">
-                 <Text className={styles.fontAction}>Activity</Text> 
-
-          <Center h="2" w="2"  as="span" className={styles.routeArrowIcon} alignContent={"center"}></Center>
+        <Box h={10} className={styles.routeArrow} aria-hidden="true">
+          <Text className={styles.fontAction}>Activity</Text>
+          <Center h="2" w="2" as="span" className={styles.routeArrowIcon} alignContent={"center"}></Center>
         </Box>
       </Box>
     </Box>
