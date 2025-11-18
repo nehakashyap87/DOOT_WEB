@@ -1,7 +1,7 @@
 import { Box, Button } from "@chakra-ui/react";
 import styles from "./barter.module.css";
 
-export default function ConnectWalletButton({ variant = "standalone" }) {
+export default function ConnectWalletButton({ variant = "standalone",btnText="Connect" }) {  
   const wrapperClass =
     variant === "card"
       ? styles.connectWalletCardWrapper
@@ -9,8 +9,8 @@ export default function ConnectWalletButton({ variant = "standalone" }) {
 
   return (
     <Box className={wrapperClass}>
-      <Button variant="unstyled" className={styles.connectWallet}>
-        Connect Wallet
+      <Button variant={""} className={styles.connectWallet}>
+        {btnText}
       </Button>
     </Box>
   );

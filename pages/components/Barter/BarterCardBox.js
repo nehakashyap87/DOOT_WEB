@@ -1,17 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  HStack,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Stack,
-  Text,
-  Tooltip,
-  VStack
-} from "@chakra-ui/react";
+import { Box, Flex, HStack, Stack, Text, Tooltip, VStack } from "@chakra-ui/react";
 import TokenBadge, { TokenIcon } from "./TokenBadge";
 import ConnectWalletButton from "./ConnectWalletButton";
 import styles from "./barter.module.css";
@@ -53,7 +40,7 @@ export default function BarterCardBox({
     {
       label: `Receive on ${toToken}`,
       value: "... (approx.)",
-      tooltip: null
+      tooltip: "approx"
     },
     {
       label: "Transfer Time",
@@ -89,30 +76,21 @@ export default function BarterCardBox({
             <VStack className={styles.tokenFrame671}>
               <VStack className={styles.tokenFrame669} >
                 {isEthToMina ? (
-                  <Menu autoSelect={false}>
-                    <MenuButton
-                      as={Button}
-                      variant="unstyled"
-                      className={styles.tokenButton}
+                  <label className={styles.tokenSelectWrapper}>
+                    <TokenIcon symbol={selectedToken} />
+                    <select px="4"
+                      className={styles.tokenSelect}
+                      value={selectedToken}
+                      onChange={(event) => onAssetChange(event.target.value)}
+                      aria-label="Select asset"
                     >
-                      <TokenIcon symbol={selectedToken} />
-                      <span className={styles.tokenButtonLabel}>
-                        {selectedToken}
-                      </span>
-                      <span className={styles.arrowDown} aria-hidden="true" />
-                    </MenuButton>
-                    <MenuList className={styles.tokenMenuList}>
                       {ETH_ASSET_OPTIONS.map((asset) => (
-                        <MenuItem
-                          key={asset}
-                          className={styles.tokenMenuItem}
-                          onClick={() => onAssetChange(asset)}
-                        >
+                        <option key={asset} value={asset}>
                           {asset}
-                        </MenuItem>
+                        </option>
                       ))}
-                    </MenuList>
-                  </Menu>
+                    </select>
+                  </label>
                 ) : (
                   <Box className={styles.tokenButtonDisabled } >
                     <TokenBadge symbol={selectedToken} />
@@ -134,7 +112,8 @@ export default function BarterCardBox({
         </div>
       </div>
 
-      <ConnectWalletButton variant="card" />
+      <ConnectWalletButton variant="card" btnText="Connect Wallet" />
+      <Text className={styles.errorText}>{errorShow} </Text>
     </Box>
   );
 }

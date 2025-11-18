@@ -6,6 +6,8 @@ import ConnectWalletButton from "./components/Barter/ConnectWalletButton";
 import PrimaryActionButton from "./components/Barter/PrimaryActionButton";
 import styles from "./components/Barter/barter.module.css";
 
+const BACKGROUND_LAYERS = Array.from({ length: 12 });
+
 export default function BarterNotConnected() {
   const [isEthToMina, setIsEthToMina] = useState(true);
   const [ethAsset, setEthAsset] = useState("ETH");
@@ -14,7 +16,11 @@ export default function BarterNotConnected() {
 
   return (
     <Box className={styles.page}>
-      <div className={styles.backgroundLines} aria-hidden="true" />
+      <div className={styles.backgroundLines} aria-hidden="true">
+        {BACKGROUND_LAYERS.map((_, index) => (
+          <span key={index} className={styles.backgroundLine} />
+        ))}
+      </div>
       <Box className={styles.hero}>
         <Box className={styles.heroContent}>
           <Stack spacing={{ base: 8, md: 10 }} align="center">

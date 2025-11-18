@@ -8,9 +8,8 @@ export default function PrimaryActionButton() {
         <Box  h={10} className={styles.routeArrow} aria-hidden="true">
                  <Text className={styles.fontAction}>Activity</Text> 
 
-          <Center  as="span" className={styles.routeArrowIcon} alignContent={"center"}></Center>
+          <Center h="2" w="2"  as="span" className={styles.routeArrowIcon} alignContent={"center"}></Center>
         </Box>
-      {/* <div className={styles.primaryButtonGlow} aria-hidden="true" /> */}
       </Box>
     </Box>
   );
