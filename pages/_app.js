@@ -12,6 +12,7 @@ import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/900.css";
 
 import Header from "./components/common/Header";
+import Footer from "./components/common/Footer";
 
 import { Provider } from "react-redux";
 import { store } from "../lib/redux/store";
@@ -43,6 +44,7 @@ export default function App({ Component, pageProps }) {
         <ChakraProvider theme={theme}>
           <Header />
           <Component {...pageProps} />
+          <Footer />
         </ChakraProvider>
         <Analytics />
       </Provider>
