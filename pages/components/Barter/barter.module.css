@@ -1,4 +1,43 @@
-﻿.page {
+﻿.barter-background {
+  position: relative;
+  background: #171717;
+  overflow: hidden;
+}
+
+.barter-background::before,
+.barter-background::after,
+.barter-background .bg-wave {
+  position: absolute;
+  width: 2609.96px;
+  height: 632.25px;
+  left: calc(50% - 1304.98px + 132.91px);
+  top: 113.39px;
+  background: linear-gradient(
+    93.52deg,
+    rgba(0, 234, 177, 0.05) -14.28%,
+    rgba(23, 190, 194, 0.0455) 10.57%,
+    rgba(39, 158, 206, 0.0325) 39.37%,
+    rgba(61, 116, 221, 0.0305) 54.25%,
+    rgba(81, 77, 236, 0.0215) 77.66%,
+    rgba(107, 27, 255, 0.05) 100%
+  );
+  transform: matrix(0.99, 0.14, -0.24, 0.97, 0, 0);
+  content: "";
+  pointer-events: none;
+}
+
+.barter-background::after {
+  opacity: 0.4;
+  filter: blur(8px);
+}
+
+.barter-background .bg-wave {
+  opacity: 0.2;
+  filter: blur(20px);
+}
+
+
+.page {
   position: relative;
   width: 100%;
   min-height: 1404px;

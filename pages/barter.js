@@ -37,7 +37,7 @@ const ORDER_DATA = {
   ]
 };
 const ORDER_FILTERS = Object.keys(ORDER_DATA);
-const  ORDER_TABLE_COLUMNS = [
+const ORDER_TABLE_COLUMNS = [
   { key: "index", label: "#" },
   { key: "amount", label: "Amount" },
   { key: "network", label: "Network" },
@@ -97,48 +97,54 @@ export default function BarterNotConnected() {
 
   return (
     <Box className={styles.page}>
-      <div className={styles.backgroundLines} aria-hidden="true">
-        {BACKGROUND_LAYERS.map((_, index) => (
-          <span key={index} className={styles.backgroundLine} />
-        ))}
-      </div>
-      <Box className={styles.hero}>
-        <Box className={styles.heroContent}>
-          <Stack spacing={{ base: 8, md: 10 }} align="center">
-            <BridgeSelector fromToken={fromToken}
-              toToken={toToken}
-              isForward={isEthToMina}
-              onToggle={() => setIsEthToMina((prev) => !prev)} />
-            <BarterCardBox
-              isEthToMina={isEthToMina}
-              toToken={toToken}
-              ethAsset={ethAsset}
-              onAssetChange={setEthAsset}
-              walletStatus={walletStatus}
-              connectionError={connectionError}
-              onWalletConnect={handleWalletConnect}
-            />
-          </Stack>
+      <section className={styles["barter-background"]}>
+        <div className={styles["bg-wave"]} />
+        <div className={styles.backgroundLines} aria-hidden="true">
+          {BACKGROUND_LAYERS.map((_, index) => (
+            <span key={index} className={styles.backgroundLine} />
+          ))}
+        </div>
+
+        <Box className={styles.hero}>
+          <Box className={styles.heroContent}>
+            <Stack spacing={{ base: 8, md: 10 }} align="center">
+              <BridgeSelector
+                fromToken={fromToken}
+                toToken={toToken}
+                isForward={isEthToMina}
+                onToggle={() => setIsEthToMina((prev) => !prev)}
+              />
+              <BarterCardBox
+                isEthToMina={isEthToMina}
+                toToken={toToken}
+                ethAsset={ethAsset}
+                onAssetChange={setEthAsset}
+                walletStatus={walletStatus}
+                connectionError={connectionError}
+                onWalletConnect={handleWalletConnect}
+              />
+            </Stack>
+          </Box>
         </Box>
-        
-      </Box>
-      <Flex className={styles.outsideHeroSection} direction="column" gap={8}>
-      <PrimaryActionButton />
-            {isWalletConnected && (
-              <Box width="100%">
-                <TableCard
-                  title="Open Sell Orders"
-                  description="Browse matched offers per bridge asset."
-                  columns={ORDER_TABLE_COLUMNS}
-                  rows={orderRows}
-                  filterLabel="Asset"
-                  filterOptions={ORDER_FILTERS}
-                  selectedFilter={openOrdersAsset}
-                  onFilterChange={setOpenOrdersAsset}
-                />
-              </Box>
-            )}
-            </Flex>
+
+        <Flex className={styles.outsideHeroSection} direction="column" gap={8}>
+          <PrimaryActionButton />
+          {isWalletConnected && (
+            <Box width="100%">
+              <TableCard
+                title="Open Sell Orders"
+                description="Browse matched offers per bridge asset."
+                columns={ORDER_TABLE_COLUMNS}
+                rows={orderRows}
+                filterLabel="Asset"
+                filterOptions={ORDER_FILTERS}
+                selectedFilter={openOrdersAsset}
+                onFilterChange={setOpenOrdersAsset}
+              />
+            </Box>
+          )}
+        </Flex>
+      </section>
     </Box>
   );
 }
