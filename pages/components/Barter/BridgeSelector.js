@@ -11,6 +11,8 @@ export function BridgeDirection({ label, symbol }) {
   );
 }
 
+const CHEVRON_COUNT = 3;
+
 export default function BridgeSelector({fromToken,toToken,onToggle,isForward}) {
   return (
       <Flex className={styles.bridges}>
@@ -20,17 +22,18 @@ export default function BridgeSelector({fromToken,toToken,onToggle,isForward}) {
             as="button"
             type="button"
             className={styles.routeArrow}
-            px={3}
+            data-forward={isForward ? "true" : "false"}
             aria-label={`Swap ${fromToken} to ${toToken}`}
             onClick={onToggle}
           >
-            <Box
-              as="span"
-              className={`${styles.routeArrowIcon} ${
-                !isForward ? styles.routeArrowIconReverse : ""
-              }`}
-              aria-hidden="true"
-            />
+            {Array.from({ length: CHEVRON_COUNT }).map((_, index) => (
+              <Box
+                key={index}
+                as="span"
+                className={styles.routeArrowChevron}
+                aria-hidden="true"
+              />
+            ))}
           </Box>
           <BridgeDirection label="To" symbol={toToken} />
         </Flex>

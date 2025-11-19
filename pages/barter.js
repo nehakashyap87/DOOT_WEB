@@ -96,7 +96,7 @@ export default function BarterNotConnected() {
   };
 
   return (
-    <Box className={styles.page}>
+    <Box width="100%">
       <section className={styles["barter-background"]}>
         <div className={styles["bg-wave"]} />
         <div className={styles.backgroundLines} aria-hidden="true">
