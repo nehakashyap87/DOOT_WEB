@@ -99,7 +99,7 @@ export default function BarterCardBox({
       <Flex className={styles.tokenEntry}>
         <HStack className={styles.tokenFrame680}>
           <VStack className={styles.tokenFrame673}>
-            <Input type="number" className={styles.amountValue} placeholder="0" border={"none"} onChange={(e)=>setAmount(e.target.value)}/>
+            <Input type="number" value={amount} className={styles.amountValue} placeholder="0" border={"none"} onChange={(e)=>setAmount(e.target.value)}/>
             <Text className={styles.amountCurrency}>$ {amount}</Text>
           </VStack>
 
