@@ -1,9 +1,10 @@
-import { Box, Flex, HStack, Text, Tooltip, VStack } from "@chakra-ui/react";
+import { Box, Flex, HStack, Input, Text, Tooltip, VStack } from "@chakra-ui/react";
 import TokenBadge, { TokenIcon } from "./TokenBadge";
 import ConnectWalletButton from "./ConnectWalletButton";
 import styles from "./barter.module.css";
 import Image from "next/image";
 import { BridgeDirection } from "./BridgeSelector";
+import { useState } from "react";
 
 const ETH_ASSET_OPTIONS = ["ETH", "USDC", "USDT"];
 export function InfoRow({ row }) {
@@ -77,7 +78,7 @@ export default function BarterCardBox({
     }
   ];
 
-
+  const [amount, setAmount] = useState(0)
   const selectedToken = isEthToMina ? ethAsset : "MINA";
   const isWalletConnected = walletStatus === "connected";
 
@@ -98,8 +99,8 @@ export default function BarterCardBox({
       <Flex className={styles.tokenEntry}>
         <HStack className={styles.tokenFrame680}>
           <VStack className={styles.tokenFrame673}>
-            <Text className={styles.amountValue}>0</Text>
-            <Text className={styles.amountCurrency}>$ 0</Text>
+            <Input type="number" className={styles.amountValue} placeholder="0" border={"none"} onChange={(e)=>setAmount(e.target.value)}/>
+            <Text className={styles.amountCurrency}>$ {amount}</Text>
           </VStack>
 
           <VStack className={styles.tokenFrame671}>

@@ -6,7 +6,8 @@ import PrimaryActionButton from "./components/Barter/PrimaryActionButton";
 import TableCard from "./components/Barter/TableCard";
 import styles from "./components/Barter/barter.module.css";
 
-const BACKGROUND_LAYERS = Array.from({ length: 12 });
+const BACKGROUND_LAYERS = Array.from({ length: 18});
+
 const ORDER_DATA = {
   ETH: [
     { amount: "0.005 ETH", network: "Ethereum" },
